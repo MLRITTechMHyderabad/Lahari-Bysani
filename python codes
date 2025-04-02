@@ -7,6 +7,7 @@ for i in l1:
         l2[i]=1
 print(l2)
 
+
 l1=[[1,2,3],[4,5,6],[7,8,9]]
 result=[[0,0,0],[0,0,0],[0,0,0]]
 for i in range(len(l1)):
@@ -15,6 +16,7 @@ for i in range(len(l1)):
 for r in result:
     print(r)
 
+#max,min in given list
 l1=[[10,2,3],[4,5,1],[7,8,9]]
 max_ele=l1[0][0]
 min_ele=l1[0][0]
@@ -26,3 +28,57 @@ for i in l1:
             min_ele=j
 print(max_ele)
 print(min_ele)
+
+
+#dice code
+d1=[1,2,3,4,5,6]
+d2=[1,2,3,4,5,6]
+l1=[]
+for i in d1:
+    for j in d2:
+        l1.append((i,j))
+print(l1)
+di={}
+for i in range(2,13):
+    c=0
+    for j in l1:
+        if i==j[0]+j[1]:
+            c+=1
+    di[str(i)]= c/len(l1)
+print(di)
+n=int(input())
+l2=[]
+for i in range(n):
+    l3=[]
+    for j in range(1,5):
+       a= int(input("a:"))
+       l3.append(a)
+    l2.append(l3)
+print(l2)   
+p1=0
+p2=0
+p1_wins=0
+p2_wins=0
+for sums in l2:
+    p11,p12,p13,p14=sums
+    p1=p11+p12
+    p2=p13+p14
+    print(p1)
+    print(p2)
+    for key, value in di.items():
+        if key == str(p1):
+            p1_prob = value
+        if key == str(p2):
+            p2_prob = value
+
+    if p1_prob < p2_prob:
+        p1_wins+= 1
+    elif p2_prob < p1_prob:
+        p2_wins += 1
+        
+if p1_wins > p2_wins:
+    print("Player 1 wins")
+elif p2_wins > p1_wins:
+    print("Player 2 wins")
+else:
+    print("It's a draw")
