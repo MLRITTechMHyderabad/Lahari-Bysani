@@ -1,3 +1,4 @@
+#count the numbers using dictionary
 l1=[2,3,4,1,4,5,6,7,8,9,3,4,1,6,7,3,8,2,6,4,8,9]
 l2={}
 for i in l1:
@@ -7,7 +8,7 @@ for i in l1:
         l2[i]=1
 print(l2)
 
-
+#tranpose matrix
 l1=[[1,2,3],[4,5,6],[7,8,9]]
 result=[[0,0,0],[0,0,0],[0,0,0]]
 for i in range(len(l1)):
@@ -29,6 +30,12 @@ for i in l1:
 print(max_ele)
 print(min_ele)
 
+#merge the dictionaries
+d1 = {"name": "uma", "location": "atp"}
+d2 = {"name": "lahari", "location": "hyd"}
+
+for key in ["name", "location"]: 
+    print(f'{key}: "{d2[key]}", "{d1[key]}"')
 
 #dice code
 d1=[1,2,3,4,5,6]
