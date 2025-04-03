@@ -1,0 +1,60 @@
+
+students = [
+    ("Alice", [85, 90, 78, 92]),
+    ("Bob", [60, 65, 70, 75]),
+    ("Charlie", [40, 45, 50, 55]),
+    ("David", [95, 100, 98, 92])
+]
+s1={keys:values for keys,values in students}
+print(s1)
+a=len(students)
+print(a)
+b=0
+highest=""
+count=0
+for keys,values in s1.items():
+  sum2=sum(values)
+  avg=sum2/len(values)
+  print(f"{keys}: {avg}")
+  if avg>=50:
+    count+=1
+  if avg > b:
+    b=avg
+    highest=keys
+print(highest)
+for keys,values in s1.items():
+  if keys=="Bob":
+    avg1=sum(values)/len(values)
+    print(f"the avg of bob is:{avg1}")
+    break
+print(f"total no.of students passed:{count}")
+
+
+employees = [
+    {"name": "Alice", "salary": 50000, "rating": 5},
+    {"name": "Bob", "salary": 40000, "rating": 3},
+    {"name": "Charlie", "salary": 35000, "rating": 2}
+]
+
+updated_employees = list(map(lambda employee: {**employee,"salary": round(employee["salary"] * (1.10 if employee["rating"] >= 4 else 
+                                           1.05 if employee["rating"] == 3 else 
+                                           0.97), 2)
+}, employees)) 
+
+print(updated_employees)
+
+customers = [
+    {"name": "Emma", "age": 22, "total_purchase": 150.0},
+    {"name": "John", "age": 30, "total_purchase": 200.0},
+    {"name": "Grace", "age": 45, "total_purchase": 180.0}
+]
+
+eligible_customers = filter(lambda c: c["age"] <= 40, customers)
+
+discounted_customers = list(map(lambda c: {
+    "name": c["name"],
+    "age": c["age"],
+    "total_purchase": round(c["total_purchase"] * (0.90 if c["age"] <= 25 else 0.95), 2)
+}, eligible_customers))
+
+print(discounted_customers)
